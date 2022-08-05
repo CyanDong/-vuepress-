@@ -1,32 +1,29 @@
 module.exports = {
-    head: [
-        ['link', { rel: 'icon', href: './images/logo.png' }] //设置标签处的图标 自己绘制了一个
-      ],
-      host: 'localhost', // ip
-      port: '8101', //端口号 默认为8080
-    
+    base: '/-vuepress-/',
+    title: 'Jessie的个人技术博客',
+    description: '办法总比问题多',
+    theme: "reco",
     themeConfig: {
-      logo: '/images/logo.png',// 注意图片放在 public 文件夹下
-      
-      nav:[ // 导航栏配置
-       {text:'Home', link:'/'},
-       {text: 'About', link: '/about/'}, 
-       {text: 'My github', link: 'https://github.com/LeafCCC'},   
-      ],      
-    },
-
-    locales: {//语言配置
-      // 键名是该语言所属的子路径
-      // 作为特例，默认语言可以使用 '/' 作为其路径。
-      '/en/': {
-        lang: 'English', // 将会被设置为 <html> 的 lang 属性
-        title: 'Hello, I\'m LeafCCC! (๑╹◡╹)ﾉ" ',
-        description: 'LeafCCC\'s Web',
-      },
-      '/': {
-        lang: '中文',
-        title: '你好, 我是LeafCCC! (๑╹◡╹)ﾉ" ',
-        description: 'LeafCCC的个人介绍网站',
-      }
-    },
+        nav: [
+            { text: '首页', link: '/' },
+            { 
+                text: 'Jessie的博客', 
+                items: [
+                    { text: 'Github', link: 'https://github.com/Jessie-jzn' },
+                    { text: 'CSDN', link: 'https://blog.csdn.net/zn740395858?spm=1010.2135.3001.5343' },
+                    { text: '掘金', link: 'https://juejin.cn/user/2524134425764375' }
+                ]
+            }
+        ],
+        sidebar:[
+            {
+                title: "博客搭建",
+                path: "/construction/Blog1",
+                collapsable: false, // 不折叠
+                children: [
+                    { title: "博客 01", path: "/construction/Blog1" },
+                ],
+            }
+        ]
+    }
 }
