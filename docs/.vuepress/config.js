@@ -1,7 +1,7 @@
 module.exports = {
     title: '壹二呀的个人技术博客',
     description: '办法总比问题多',
-    base: '/-vuepress-/',
+    base: '/-vuepress-',
     locales: {
         "/": {
             lang: "zh-CN",
