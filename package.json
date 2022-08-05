@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "deploy-gh": "GH=1 npm run start && bash scripts/deploy-gh.sh"
   },
   "repository": {
     "type": "git",
