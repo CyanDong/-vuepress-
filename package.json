@@ -1,0 +1,24 @@
+{
+  "name": "-vuepress-",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CyanDong/-vuepress-.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CyanDong/-vuepress-/issues"
+  },
+  "homepage": "https://github.com/CyanDong/-vuepress-#readme",
+  "devDependencies": {
+    "vuepress": "^1.9.7"
+  }
+}
