@@ -2,7 +2,7 @@
 home: true
 # heroImage: /hero.png
 heroText: 今天掉头发了嘛
-tagline: 没掉过头发的程序员都不是好的开发
+tagline: 要让每一个掉的头发都牺牲的有价值
 actionText: 快速上手 →
 actionLink: /zh/guide/
 
