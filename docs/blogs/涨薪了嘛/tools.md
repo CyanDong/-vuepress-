@@ -45,7 +45,19 @@ Midway-node.js框架   <https://www.yuque.com/midwayjs/midway_v2/introduction>
 
 markdown教程   <https://www.runoob.com/markdown/md-link.html>
 
+## vuepress
+vuepress中文网 <https://www.vuepress.cn/guide/deploy.html#github-pages>
 
+汪图南vuepress <https://wangtunan.github.io/blog/vuepress/>
 
+保姆级搭建 <https://blog.csdn.net/zn740395858/article/details/125239304>
+
+快速制作blog <https://juejin.cn/post/6844903999129436174>
+
+vuepress侧边栏 <https://blog.csdn.net/weixin_30520491/article/details/112240772>
+
+vuepress-theme-reco主题文档 <https://vuepress-theme-reco.recoluan.com/views/1.x/>
+
+vuepress-theme-reco主题自定义 <https://blog.csdn.net/qq_41327483/article/details/119103300>
 
 
