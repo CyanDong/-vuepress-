@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>【vue3】响应式原理 | 壹二呀</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="办法总比问题多">
+    
+    <link rel="preload" href="/-vuepress-/assets/css/0.styles.44084d46.css" as="style"><link rel="preload" href="/-vuepress-/assets/js/app.976a73c9.js" as="script"><link rel="preload" href="/-vuepress-/assets/js/3.6f8c62c3.js" as="script"><link rel="preload" href="/-vuepress-/assets/js/1.52ddd16f.js" as="script"><link rel="preload" href="/-vuepress-/assets/js/16.3f336f44.js" as="script"><link rel="prefetch" href="/-vuepress-/assets/js/10.6c1573b7.js"><link rel="prefetch" href="/-vuepress-/assets/js/11.a639a3c0.js"><link rel="prefetch" href="/-vuepress-/assets/js/12.ec49aa33.js"><link rel="prefetch" href="/-vuepress-/assets/js/13.264afa7d.js"><link rel="prefetch" href="/-vuepress-/assets/js/14.5136664e.js"><link rel="prefetch" href="/-vuepress-/assets/js/15.2957c5c9.js"><link rel="prefetch" href="/-vuepress-/assets/js/17.6f47c724.js"><link rel="prefetch" href="/-vuepress-/assets/js/18.d09292de.js"><link rel="prefetch" href="/-vuepress-/assets/js/4.5bbbd059.js"><link rel="prefetch" href="/-vuepress-/assets/js/5.2f82214a.js"><link rel="prefetch" href="/-vuepress-/assets/js/6.06207462.js"><link rel="prefetch" href="/-vuepress-/assets/js/7.005d8c8c.js"><link rel="prefetch" href="/-vuepress-/assets/js/8.c6314748.js"><link rel="prefetch" href="/-vuepress-/assets/js/9.f869b5d3.js">
+    <link rel="stylesheet" href="/-vuepress-/assets/css/0.styles.44084d46.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-5bb33761><div data-v-5bb33761><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-5bb33761 data-v-5bb33761><h3 class="title" data-v-59e6cb88>壹二呀</h3> <p class="description" data-v-59e6cb88>办法总比问题多</p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <!---->
+        2023
+      </a></span></div></div> <div class="hide" data-v-5bb33761><header class="navbar" data-v-5bb33761><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/-vuepress-/" class="home-link router-link-active"><img src="/-vuepress-/author.jpeg" alt="壹二呀" class="logo"> <span class="site-name">壹二呀</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/-vuepress-/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/-vuepress-/categories/技能/" class="nav-link"><i class="undefined"></i>
+  技能
+</a></li><li class="dropdown-item"><!----> <a href="/-vuepress-/categories/涨薪了嘛/" class="nav-link"><i class="undefined"></i>
+  涨薪了嘛
+</a></li></ul></div></div><div class="nav-item"><a href="/-vuepress-/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="https://github.com/CyanDong/-vuepress-" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-5bb33761></div> <aside class="sidebar" data-v-5bb33761><div class="personal-info-wrapper" data-v-1fad0c41 data-v-5bb33761><img src="/-vuepress-/author.jpeg" alt="author-avatar" class="personal-img" data-v-1fad0c41> <!----> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>9</h3> <h6 data-v-1fad0c41>文章</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>11</h3> <h6 data-v-1fad0c41>标签</h6></div></div> <ul class="social-links" data-v-1fad0c41><li class="social-item" data-v-1fad0c41><i class="iconfont reco-github" style="color:#f26d6d;" data-v-1fad0c41></i></li><li class="social-item" data-v-1fad0c41><i class="iconfont reco-npm" style="color:#abbd81;" data-v-1fad0c41></i></li></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="/-vuepress-/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/-vuepress-/categories/技能/" class="nav-link"><i class="undefined"></i>
+  技能
+</a></li><li class="dropdown-item"><!----> <a href="/-vuepress-/categories/涨薪了嘛/" class="nav-link"><i class="undefined"></i>
+  涨薪了嘛
+</a></li></ul></div></div><div class="nav-item"><a href="/-vuepress-/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="https://github.com/CyanDong/-vuepress-" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-5bb33761><h3 class="title" data-v-59e6cb88>【vue3】响应式原理</h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <!---->
+        2023
+      </a></span></div></div> <div data-v-5bb33761><div data-v-5bb33761><main class="page"><section style="display:;"><div class="page-title"><h1 class="title">【vue3】响应式原理</h1> <div data-v-8a445198><!----> <i class="iconfont reco-date" data-v-8a445198><span data-v-8a445198>2023/2/9</span></i> <!----> <i class="tags iconfont reco-tag" data-v-8a445198><span class="tag-item" data-v-8a445198>vue3</span><span class="tag-item" data-v-8a445198>vue</span></i></div></div> <div class="theme-reco-content content__default"><h2 id="vue2和vue3的响应式原理"><a href="#vue2和vue3的响应式原理" class="header-anchor">#</a> vue2和vue3的响应式原理</h2> <p>vue2实现响应式原理使用的是Object.defineProperty()对对象中的某个属性的读取、修改进行拦截，存在新增和删除缺陷。</p> <p>而vue3实现响应式原理是用的是Proxy代理，拦截对象中的任意属性的变化</p> <h2 id="vue2的响应式原理"><a href="#vue2的响应式原理" class="header-anchor">#</a> vue2的响应式原理</h2> <p>实现原理：</p> <p>1、对象类型：通过Object.defineProperty(object, 'propName', descriptor)对属性的读取、修改进行拦截（数据劫持）</p> <p>· object：要监听的目标对象</p> <p>· propName：要定义或修改的属性的名称</p> <p>· descriptor：要定义或修改的属性描述、操作详情</p> <p>2、数组类型：通过重写更新数组的一系列方法来实现拦截（对数组的变更方法进行了包裹）</p> <p>存在问题：</p> <p>1、当对象中属性过多时Object.defineProperty()需要针对每个属性进行遍历实现响应式，效率不高</p> <p>2、object.defineProperty不能监听到对象的新增删除属性，需要开发者主动调用方法去更新，vue.set(),vue.delete,由于object.defineproperty劫持的是对象的属性，所以新增属性时，需要重新遍历对象，对其新增属性再使用object.defineproperty进行劫持</p> <p>3、object.defineproperty不能监听到数组的添加删除操作，依然可以使用vue.set(),vue.delete更新数据，但使用push可以给数组添加数据，不需要调用set，是因为vue2.0使用数组重写的方法实现了数组的响应，方法分别为'push','pop','shift','unshift','splice','sort','reverse'</p> <p>4、直接通过下标修改数组，界面不会自动更新
+如果改变数组的索引的值，vm.items[indexofitem]=newValue真的不能被监听嘛？</p> <p>object.defineproperty能监听到，但vue不给添加监听，因为性能对于对象而言，每一次的数据变更都会对对象的属性进行一次枚举，一般对象本身的属性数量有限，所以对于遍历枚举等方式产生的性能损耗可以会略不计，但对于数组而言呢，数组包含的元素量可能达到成千上万，假设对于每一次数组元素的更新都触发了枚举/遍历，其带来的性能损耗将于获得的用户体验不成正比，故vue无法检测数组的变动。</p> <p>再者注意：object.defineproperty是深度监听，需要递归到底。一次性计算量很大</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+    <span class="token comment">// 源数据</span>
+    <span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'zhangsan'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">18</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 对源数据中的每个属性进行遍历，使其变成响应式数据</span>
+    Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        <span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'触发get'</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> value
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token function">set</span><span class="token punctuation">(</span>newValue<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>newValue <span class="token operator">!==</span> value<span class="token punctuation">)</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'触发set'</span><span class="token punctuation">)</span>
+            value <span class="token operator">=</span> newValue
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    obj<span class="token punctuation">.</span>name
+    obj<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'sansan'</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</code></pre></div><h2 id="vue3的响应式原理"><a href="#vue3的响应式原理" class="header-anchor">#</a> vue3的响应式原理</h2> <p>实现原理：</p> <p>vue3.0实现数据的响应式是通过proxy</p> <p>与object.defineproperty不同的是object.defineproperty只能劫持对对象的属性，而proxy是直接代理对象。因为proxy是对整个对象进行代理，所以可以监听对象某个属性值的变化。还可以监听对象属性的新增和删除，而且还可以监听数组</p> <p>proxy是es6的新增的功能，可以用来定义对象的操作</p> <p>proxy是对整个对象进行代理，不关心对象里面具体有什么属性，而object.defineproperty只能响应首次渲染时候的属性。但proxy的兼容性不好，vue3使用proxy说明放弃了对IE的兼容考虑</p> <h2 id="手写object-defineproperty和proxy监听一个对象的实现"><a href="#手写object-defineproperty和proxy监听一个对象的实现" class="header-anchor">#</a> 手写object.defineproperty和proxy监听一个对象的实现</h2> <p>object.defineproperty</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 触发更新视图</span>
+<span class="token keyword">function</span> <span class="token function">updateView</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'视图更新了'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'zhangsan'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">info</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">address</span><span class="token operator">:</span> <span class="token string">'beijing'</span> <span class="token comment">// 需要深度监听</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">nums</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">defineReactive</span><span class="token punctuation">(</span><span class="token parameter">target<span class="token punctuation">,</span> key<span class="token punctuation">,</span> value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 为什么用defineReactive包裹，因为这个函数和get，set形成了闭包</span>
+    <span class="token comment">// 能保存value的值，不然就得定义一个全局变量去保存value</span>
+    <span class="token function">observer</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token comment">// 深度监听</span>
+    Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        <span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> value
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token function">set</span><span class="token punctuation">(</span>newValue<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>newValue <span class="token operator">!==</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">observer</span><span class="token punctuation">(</span>newValue<span class="token punctuation">)</span> <span class="token comment">// 这里设置observer是为了data.age= { num: 1}</span>
+                value <span class="token operator">=</span> newValue
+                <span class="token function">updateView</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 监听数组</span>
+<span class="token keyword">const</span> oldArrayProperty <span class="token operator">=</span> <span class="token class-name">Arr</span><span class="token punctuation">.</span>prototype
+<span class="token keyword">const</span> arrProto <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>oldArrayProperty<span class="token punctuation">)</span>
+<span class="token keyword">const</span> arrMethod <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'push'</span><span class="token punctuation">,</span> <span class="token string">'pop'</span><span class="token punctuation">,</span> <span class="token string">'shift'</span><span class="token punctuation">,</span> <span class="token string">'unshift'</span><span class="token punctuation">,</span> <span class="token string">'splice'</span><span class="token punctuation">,</span> <span class="token string">'sort'</span><span class="token punctuation">,</span> <span class="token string">'reverse'</span><span class="token punctuation">]</span>
+arrMethod<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">methodsName</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    arrProto<span class="token punctuation">[</span>mehodsName<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">updateView</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        oldArrayPropoty<span class="token punctuation">[</span>methodsName<span class="token punctuation">]</span>
+<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token operator">...</span>arguments<span class="token punctuation">)</span>    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">function</span> <span class="token function">observer</span><span class="token punctuation">(</span><span class="token parameter">target</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> target <span class="token operator">!=</span> <span class="token string">'object'</span> <span class="token operator">||</span> target <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 不是对象或数组</span>
+        <span class="token keyword">return</span> target
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        target<span class="token punctuation">.</span>_proto_ <span class="token operator">=</span> arrProto
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 重新定义各个属性（for in也可以遍历数组）</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> key <span class="token keyword">in</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">defineReactive</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> key<span class="token punctuation">,</span> target<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token function">observer</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+<span class="token comment">// data.name = 'xiaoming'</span>
+<span class="token comment">// data.info.address = 'shanghai'</span>
+<span class="token comment">// data.age = { num: 1 }</span>
+<span class="token comment">// data.job = 'it' 对于新增属性是无法监控的</span>
+<span class="token comment">// data.nums.push(4)</span>
+</code></pre></div><p>proxy</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'xiaoming'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">info</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">address</span><span class="token operator">:</span> <span class="token string">'beijing'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">nums</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 把目标对象变成代理对象</span>
+<span class="token comment">// 参数1: data -&gt;target目标对象</span>
+<span class="token comment">// 参数2: handle -&gt;处理器对象，用来监听数据以及数据操作</span>
+<span class="token keyword">const</span> proxyData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 获取目标对象的某个属性</span>
+    <span class="token function">get</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> props<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'get方法调用了'</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> Reflect<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> props<span class="token punctuation">)</span> <span class="token comment">// 需要用到Reflect将值反射出去，不然是拿不到值的，Reflect配合Proxy使用</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment">// 修改目标对象的属性值</span>
+    <span class="token function">set</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> props<span class="token punctuation">,</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'set方法调用了'</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> Reflect<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> props<span class="token punctuation">,</span> value<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment">// 删除目标对象的属性值，为目标对象添加新的属性</span>
+    <span class="token function">deleteProperty</span><span class="token punctuation">(</span><span class="token parameter">target<span class="token punctuation">,</span> props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'delete方法调用了'</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> Reflect<span class="token punctuation">.</span><span class="token function">deleteProperty</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> props<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>proxyData<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+<span class="token comment">// 通过代理对象更新目标对象上的某个属性值</span>
+proxyData<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'daming'</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+<span class="token keyword">delete</span> proxyData<span class="token punctuation">.</span>name
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+proxyData<span class="token punctuation">.</span>info<span class="token punctuation">.</span>address <span class="token operator">=</span> <span class="token string">'shanghai'</span>
+</code></pre></div></div></section> <footer class="page-edit"><!----> <!----></footer> <!----> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-ac050c62><li class="level-2" data-v-ac050c62><a href="/-vuepress-/blogs/%E6%8A%80%E8%83%BD/vue%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86.html#vue2和vue3的响应式原理" class="sidebar-link reco-side-vue2和vue3的响应式原理" data-v-ac050c62>vue2和vue3的响应式原理</a></li><li class="level-2" data-v-ac050c62><a href="/-vuepress-/blogs/%E6%8A%80%E8%83%BD/vue%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86.html#vue2的响应式原理" class="sidebar-link reco-side-vue2的响应式原理" data-v-ac050c62>vue2的响应式原理</a></li><li class="level-2" data-v-ac050c62><a href="/-vuepress-/blogs/%E6%8A%80%E8%83%BD/vue%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86.html#vue3的响应式原理" class="sidebar-link reco-side-vue3的响应式原理" data-v-ac050c62>vue3的响应式原理</a></li><li class="level-2" data-v-ac050c62><a href="/-vuepress-/blogs/%E6%8A%80%E8%83%BD/vue%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86.html#手写object-defineproperty和proxy监听一个对象的实现" class="sidebar-link reco-side-手写object-defineproperty和proxy监听一个对象的实现" data-v-ac050c62>手写object.defineproperty和proxy监听一个对象的实现</a></li></ul></main></div> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/-vuepress-/assets/js/app.976a73c9.js" defer></script><script src="/-vuepress-/assets/js/3.6f8c62c3.js" defer></script><script src="/-vuepress-/assets/js/1.52ddd16f.js" defer></script><script src="/-vuepress-/assets/js/16.3f336f44.js" defer></script>
+  </body>
+</html>
